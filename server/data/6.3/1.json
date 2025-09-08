@@ -1,0 +1,68 @@
+{
+  "title": "Создание файла конфигурации маршрутизатора с использованием createBrowserRouter",
+  "goals": [
+    "Практическое освоение создания файла конфигурации маршрутизатора в React с использованием createBrowserRouter.",
+    "Закрепление понимания структуры и логики маршрутизации в React-приложениях."
+  ],
+  "training_topic": "Создание файла конфигурации маршрутизатора с использованием createBrowserRouter.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать файл конфигурации маршрутизатора в React с использованием createBrowserRouter, чтобы управлять навигацией между страницами приложения.",
+    "",
+    "Шаг 1. Подготовьте рабочую среду:",
+    "- Откройте редактор кода и откройте существующий React-проект в дополнительных материалах.",
+    "",
+    "Шаг 2. Импорт необходимых модулей:",
+    "- Создайте файл `router.js` и импортируйте функцию `createBrowserRouter` из библиотеки `react-router-dom`, а также компоненты `Layout` и страницы из соответствующих папок.",
+    {
+      "type": "code",
+      "title": "Импорт модулей в router.js",
+      "code": "import { createBrowserRouter } from 'react-router-dom'; import { Layout } from './layout/Layout'; import { FirstPage, SecondPage, ThirdPage, FourthPage, FifthPage, SixthPage } from './pages';"
+    },
+    "",
+    "Шаг 3. Создание конфигурации маршрутизатора:",
+    "- Создайте конфигурацию маршрутизатора с использованием функции `createBrowserRouter`, определив маршруты и их компоненты.",
+    {
+      "type": "code",
+      "title": "Создание конфигурации маршрутизатора в router.js",
+      "code": "export const routes = createBrowserRouter([ { path: '/', element: <Layout />, children: [ { index: true, element: <FirstPage />, }, { path: 'second', element: <SecondPage />, }, { path: 'third', element: <ThirdPage />, }, { path: 'fourth', element: <FourthPage />, }, { path: 'fifth', element: <FifthPage />, }, { path: 'sixth', element: <SixthPage />, }, ], }, ]);"
+    },
+    "",
+    "Шаг 4. Использование конфигурации маршрутизатора в приложении:",
+    "- Обновите файл `index.js`, чтобы использовать созданную конфигурацию маршрутизатора с компонентом `RouterProvider`.",
+    {
+      "type": "code",
+      "title": "Использование конфигурации маршрутизатора в index.js",
+      "code": "import React from 'react'; import ReactDOM from 'react-dom/client'; import { RouterProvider } from 'react-router-dom'; import { routes } from './router'; const root = ReactDOM.createRoot(document.getElementById('root')); root.render( <React.StrictMode> <RouterProvider router={routes} /> </React.StrictMode> );"
+    },
+    "",
+    "Шаг 5. Запуск и тестирование приложения:",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и протестируйте навигацию между страницами приложения, используя маршрутизатор.",
+    "",
+    "Заключение:",
+    "- Вы освоили создание файла конфигурации маршрутизатора с использованием createBrowserRouter и научились интегрировать его в React-приложение для управления навигацией между страницами."
+  ],
+  "reflection_questions": [
+    "Какие преимущества использования createBrowserRouter для создания маршрутизатора в React-приложениях?",
+    "Как структура конфигурации маршрутизатора влияет на организацию и читаемость кода?",
+    "Какие альтернативные способы создания маршрутизатора существуют в React-Router-Dom?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "1",
+    "chapter": "6.3"
+    },    
+    "Документация React-Router-Dom: https://reactrouter.com/home"
+  ],
+  "final_conclusion": [
+    "Вы освоили создание файла конфигурации маршрутизатора с использованием createBrowserRouter, что позволит вам эффективно управлять навигацией в React-приложениях и улучшать их структуру и производительность."
+  ]
+}

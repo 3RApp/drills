@@ -1,0 +1,77 @@
+{
+  "title": "Создание объекта конфигурации маршрутизатора с использованием createBrowserRouter и сложных путей",
+  "goals": [
+    "Практическое освоение создания объекта конфигурации маршрутизатора в React с использованием createBrowserRouter и сложных путей.",
+    "Закрепление понимания структуры и логики маршрутизации в React-приложениях."
+  ],
+  "training_topic": "Создание объекта конфигурации маршрутизатора с использованием createBrowserRouter и сложных путей.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать объект конфигурации маршрутизатора в React с использованием createBrowserRouter и сложных путей, чтобы управлять навигацией между страницами приложения.",
+    "",
+    "Шаг 1. Подготовьте рабочую среду:",
+    "- Откройте редактор кода и создайте или откройте существующую папку с React-проектом.",
+    "",
+    "Шаг 2. Импорт необходимых модулей:",
+    "- Создайте файл `router.js` и импортируйте функцию `createBrowserRouter` из библиотеки `react-router-dom`, а также компоненты `FirstPage`, `SecondPage`, `ThirdPage` и `Layout` из соответствующих папок.",
+    {
+      "type": "code",
+      "title": "Импорт модулей в router.js",
+      "code": "import { createBrowserRouter } from 'react-router-dom'; import { FirstPage } from './pages/FirstPage'; import { SecondPage } from './pages/SecondPage'; import { ThirdPage } from './pages/ThirdPage'; import { Layout } from './layout/Layout';"
+    },
+    "",
+    "Шаг 3. Создание конфигурации маршрутизатора с использованием сложных путей и компонента Layout:",
+    "- Создайте конфигурацию маршрутизатора с использованием функции `createBrowserRouter`, определив маршруты и их компоненты с использованием сложных путей и компонента Layout.",
+    {
+      "type": "code",
+      "title": "Создание конфигурации маршрутизатора в router.js",
+      "code": "export const routes = createBrowserRouter([ { path: '/', element: <Layout />, children: [ { index: true, element: <FirstPage />, }, { path: '/second/page/can/present/its/content/by/this/path', element: <SecondPage />, }, { path: '/third_page_that-have-very-very-long_name_and_react-router-dom_can-handle-this-path-correctly', element: <ThirdPage />, }, ], }, ]);"
+    },
+    "",
+    "Шаг 4. Использование конфигурации маршрутизатора в приложении:",
+    "- Обновите файл `index.js`, чтобы использовать созданную конфигурацию маршрутизатора с компонентом `RouterProvider`.",
+    {
+      "type": "code",
+      "title": "Использование конфигурации маршрутизатора в index.js",
+      "code": "import React from 'react'; import ReactDOM from 'react-dom/client'; import { RouterProvider } from 'react-router-dom'; import { routes } from './router'; const root = ReactDOM.createRoot(document.getElementById('root')); root.render( <React.StrictMode> <RouterProvider router={routes} /> </React.StrictMode> );"
+    },
+    "",
+    "Шаг 5. Запуск и тестирование приложения:",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и протестируйте навигацию между страницами приложения, используя маршрутизатор и сложные пути.",
+    "",
+    "Шаг 6. Метод проб и ошибок:",
+    "- Перейдите на вторую страницу.",
+    "- В конце пути в адресной строке, удалите последний сегмент '/path', чтобы путь в адресной строке выглядел так '/second/page/can/present/its/content/by/this'.",
+    "- Определите корректность такого действия для данного маршрута.",
+    "",
+    "Шаг 7. Изучение разделителей:",
+    "- Перейдите на третью страницу.",
+    "- Посмотрите какие виды разделителей приемлемы в пути.",
+    "",    
+    "Заключение:",
+    "- Вы освоили создание объекта конфигурации маршрутизатора с использованием createBrowserRouter и сложных путей, что позволит вам эффективно управлять навигацией в React-приложениях и улучшать их структуру и производительность."
+  ],
+  "reflection_questions": [
+    "Какие преимущества использования сложных путей в маршрутизации React-приложений?",
+    "Как структура конфигурации маршрутизатора с использованием сложных путей влияет на организацию и читаемость кода?",
+    "Какие альтернативные способы создания сложных маршрутов существуют в React-Router-Dom?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "1",
+    "chapter": "6.4"
+    },    
+    "Документация React-Router-Dom: https://reactrouter.com/home"
+  ],
+  "final_conclusion": [
+    "Вы освоили создание объекта конфигурации маршрутизатора с использованием createBrowserRouter и сложных путей, что позволит вам эффективно управлять навигацией в React-приложениях и улучшать их структуру и производительность."
+  ]
+}

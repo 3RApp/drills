@@ -1,0 +1,106 @@
+{
+  "title": "Создание React-компонентов разных ролей",
+  "goals": [
+    "Практическое освоение создания компонентов с разными ролями в React.",
+    "Закрепление понимания различных ролей компонентов в структуре React-приложения."
+  ],
+  "training_topic": "Создание компонентов с разными ролями в React.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать компоненты с разными ролями в React, чтобы понять их влияние на структуру и функциональность приложения.",
+    "",
+    "Шаг 1. Подготовьте рабочую среду:",
+    "- Откройте редактор кода и создайте или откройте существующую папку с React-проектом.",
+    "",
+    "Шаг 2. Создание хука useProvider для контекста:",
+    "- Создайте файл `useProvider.js` и поместите в него следующий код хука, который создаёт контекст с одним свойством `name`:",
+    {
+      "type": "code",
+      "title": "Хук useProvider.js",
+      "code": "import { createContext, useContext } from 'react'; const ProviderContext = createContext(); const useProvider = () => useContext(ProviderContext); export { ProviderContext, useProvider };"
+    },
+    "",
+    "Шаг 3. Создание компонента Provider.js:",
+    "- Создайте файл `Provider.js` и поместите в него следующий код компонента, который использует контекст и предоставляет данные для приложения:",
+    {
+      "type": "code",
+      "title": "Компонент Provider.js",
+      "code": "import React from 'react'; import { ProviderContext } from './useProvider'; const Provider = ({ children }) => { const value = { name: 'Роли компонентов' }; return ( <ProviderContext.Provider value={value}> {children} </ProviderContext.Provider> ); }; export default Provider;"
+    },
+    "",
+    "Шаг 4. Создание компонента App.js:",
+    "- Создайте файл `App.js` и поместите в него следующий код компонента, который содержит компонент Layout и заголовки:",
+    {
+      "type": "code",
+      "title": "Компонент App.js",
+      "code": "import React from 'react'; import Layout from './layout/Layout'; import Page from './pages/Page'; const App = () => { return ( <div style={{ border: '2px solid red', padding: '10px' }}> <h1 style={{ color: 'red' }}>Приложение для изучения ролей React-компонентов при создании приложения</h1> <h2 style={{ color: 'red' }}>Это компонент с ролью Приложение</h2> <Layout> <Page /> </Layout> </div> ); }; export default App;"
+    },
+    "",
+    "Шаг 5. Создание компонента Layout.js:",
+    "- Создайте файл `Layout.js` в папке `src/layout` и поместите в него следующий код компонента, который оборачивает дочерние компоненты и содержит заголовок:",
+    {
+      "type": "code",
+      "title": "Компонент Layout.js",
+      "code": "import React from 'react'; const Layout = ({ children }) => { return ( <div style={{ border: '2px solid blue', padding: '10px' }}> <h2 style={{ color: 'blue' }}>Это компонент с ролью Лэйаут</h2> {children} </div> ); }; export default Layout;"
+    },
+    "",
+    "Шаг 6. Создание компонента Page.js:",
+    "- Создайте файл `Page.js` в папке `src/pages` и поместите в него следующий код компонента, который содержит заголовок и компонент Business:",
+    {
+      "type": "code",
+      "title": "Компонент Page.js",
+      "code": "import React from 'react'; import Business from '../business/Business'; const Page = () => { return ( <div style={{ border: '2px solid green', padding: '10px' }}> <h2 style={{ color: 'green' }}>Это компонент с ролью Страница</h2> <Business /> </div> ); }; export default Page;"
+    },
+    "",
+    "Шаг 7. Создание компонента Business.js:",
+    "- Создайте файл `Business.js` в папке `src/business` и поместите в него следующий код компонента, который использует контекст, содержит счётчик и передает данные в компонент Component:",
+    {
+      "type": "code",
+      "title": "Компонент Business.js",
+      "code": "import React, { useState } from 'react'; import { useProvider } from '../useProvider'; import Component from '../components/Component'; const Business = () => { const { name } = useProvider(); const [counter, setCounter] = useState(0); const handleClick = () => { setCounter(counter + 1); alert('Клик!'); }; return ( <div style={{ border: '2px solid orange', padding: '10px' }}> <h2 style={{ color: 'orange' }}>Это компонент с ролью Бизнес-компонент</h2> <Component title={name} onClick={handleClick} /> </div> ); }; export default Business;"
+    },
+    "",
+    "Шаг 8. Создание компонента Component.js:",
+    "- Создайте файл `Component.js` в папке `src/components` и поместите в него следующий код компонента, который содержит заголовок и кнопку с обработчиком события:",
+    {
+      "type": "code",
+      "title": "Компонент Component.js",
+      "code": "import React from 'react'; const Component = ({ title, onClick }) => { return ( <div style={{ border: '2px solid purple', padding: '10px' }}> <h2 style={{ color: 'purple' }}>Это простой конечный компонент</h2> <button style={{ backgroundColor: 'purple', color: 'white' }} onClick={onClick}> {title} </button> </div> ); }; export default Component;"
+    },
+    "",
+    "Шаг 9. Использование компонента Provider в index.js:",
+    "- Обновите файл `index.js`, чтобы обернуть компонент `App` компонентом `Provider`:",
+    {
+      "type": "code",
+      "title": "Файл index.js",
+      "code": "import React from 'react'; import ReactDOM from 'react-dom/client'; import Provider from './Provider'; import App from './App'; const root = ReactDOM.createRoot(document.getElementById('root')); root.render( <React.StrictMode> <Provider> <App /> </Provider> </React.StrictMode> );"
+    },
+    "",
+    "Шаг 10. Запуск и просмотр результата:",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и изучите иерархию компонентов, обратите внимание на цветные рамки и текст, а также проверьте работу кнопки в компоненте `Component`, которая увеличивает счётчик в компоненте `Business`.",
+    "",
+    "Заключение:",
+    "- Вы освоили создание компонентов с разными ролями в React и поняли их влияние на структуру и функциональность приложения."
+  ],
+  "reflection_questions": [
+    "Какие роли выполняют компоненты в иерархии React-приложения?",
+    "Какие преимущества даёт использование ролей компонентов в React?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "1",
+    "chapter": "5.19"
+    }
+  ],
+  "final_conclusion": [
+    "Вы освоили создание компонентов с разными ролями в React, научились использовать контекст и кастомные хуки для управления данными и состоянием, а также поняли их влияние на структуру и функциональность приложения."
+  ]
+}

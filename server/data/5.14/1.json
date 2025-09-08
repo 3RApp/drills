@@ -1,0 +1,95 @@
+{
+  "title": "Создание состояния в компоненте с помощью хука useReducer",
+  "goals": [
+    "Практическое освоение использования хука useReducer для управления состоянием в React-компонентах.",
+    "Закрепление навыков работы с редьюсерами и экшенами."
+  ],
+  "training_topic": "Управление состоянием в React-компонентах с использованием хука useReducer.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться использовать хук useReducer для создания и управления состоянием в React-компонентах, следуя пошаговой инструкции.",
+    "",
+    "Шаг 1. Реализовать вывод компонента (задание структуры):",
+    "- Создайте файл `App.js` и поместите в него следующий код компонента, который выводит структуру компонента:",
+    {
+      "type": "code",
+      "title": "Компонент App.js (вывод структуры)",
+      "code": "import React from 'react'; const App = () => { return ( <div> <h1>Использование хука useReducer</h1> <p>Текущее значение счётчика: 0</p> <button>Увеличить счётчик</button> </div> ); }; export default App;"
+    },
+    "",
+    "Шаг 2. Придумать, какие действия ведут к изменению состояния (дать им наименования):",
+    "- Определите действия, которые будут изменять состояние компонента. В данном случае это действие `INCREMENT` для увеличения счётчика.",
+    "",
+    "Шаг 3. Разработать экшены для каждого изменяемого состояния и payload для них:",
+    "- Создайте объект экшена `INCREMENT` без payload, так как для увеличения счётчика не требуется дополнительная информация:",
+    {
+      "type": "code",
+      "title": "Разработать экшены для каждого изменяемого состояния и payload для них",
+      "code": "const incrementAction = { type: 'INCREMENT' };"
+    },
+    "",
+    "Шаг 4. Создать редьюсер на основе экшенов:",
+    "- Добавьте в компонент `App.js` следующий код редьюсера, который обрабатывает экшен `INCREMENT`:",
+    {
+      "type": "code",
+      "title": "Редьюсер для компонента App.js",
+      "code": "const reducer = (state, action) => { switch (action.type) { case 'INCREMENT': return { ...state, count: state.count + 1 }; default: return state; } };"
+    },
+    "",
+    "Шаг 5. Внедрить хук useReducer в компонент и задать в хуке начальное состояние:",
+    "- Обновите компонент `App.js`, добавив хук useReducer и начальное состояние:",
+    {
+      "type": "code",
+      "title": "Компонент App.js (с хуком useReducer и начальным состоянием)",
+      "code": "import React, { useReducer } from 'react'; const initialState = { count: 0 }; const reducer = (state, action) => { switch (action.type) { case 'INCREMENT': return { ...state, count: state.count + 1 }; default: return state; } }; const App = () => { const [state, dispatch] = useReducer(reducer, initialState); return ( <div> <h1>Использование хука useReducer</h1> <p>Текущее значение счётчика: {state.count}</p> <button>Увеличить счётчик</button> </div> ); }; export default App;"
+    },
+    "",
+    "Шаг 6. Реализовать вызовы функции dispatch с передачей им соответствующих экшенов:",
+    "- Обновите компонент `App.js`, добавив вызов функции dispatch при нажатии на кнопку:",
+    {
+      "type": "code",
+      "title": "Компонент App.js (с вызовом функции dispatch)",
+      "code": "import React, { useReducer } from 'react'; const initialState = { count: 0 }; const reducer = (state, action) => { switch (action.type) { case 'INCREMENT': return { ...state, count: state.count + 1 }; default: return state; } }; const App = () => { const [state, dispatch] = useReducer(reducer, initialState); return ( <div> <h1>Использование хука useReducer</h1> <p>Текущее значение счётчика: {state.count}</p> <button onClick={() => dispatch({ type: 'INCREMENT' })}>Увеличить счётчик</button> </div> ); }; export default App;"
+    },
+    "",
+    "Шаг 7. Запуск и просмотр результата:",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и нажмите на кнопку «Увеличить счётчик». Наблюдайте, как значение счётчика увеличивается при каждом нажатии.",
+    "",
+    "Шаг 8. Внесение изменений в код для закрепления понимания:",
+    "- Попробуйте внести следующие изменения в код, чтобы лучше понять работу хука useReducer:",
+    {
+      "type": "enumeration",
+      "items": [
+        "Добавьте новое действие `DECREMENT` для уменьшения счётчика и реализуйте его в редьюсере.",
+        "Измените начальное состояние счётчика на другое значение.",
+        "Добавьте ещё один счётчик и реализуйте его управление с помощью отдельных экшенов."
+      ]
+    },
+    "",    
+    "Заключение:",
+    "- Вы освоили использование хука useReducer для создания и управления состоянием в React-компонентах, следуя пошаговой инструкции."
+  ],
+  "reflection_questions": [
+    "Какие задачи решает хук useReducer в React?",
+    "Как организован вызов редьюсера при использовании хука useReducer?",
+    "Какие преимущества даёт использование хука useReducer перед использованием хука useState?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "1",
+    "chapter": "5.14"
+    },    
+    "Документация React: https://react.dev/reference/react/useReducer"
+  ],
+  "final_conclusion": [
+    "Вы освоили использование хука useReducer в React, научились создавать и управлять состоянием компонента с помощью редьюсеров и экшенов."
+  ]
+}

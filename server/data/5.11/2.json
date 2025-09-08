@@ -1,0 +1,88 @@
+{
+  "title": "Использование хука useContext в React",
+  "goals": [
+    "Практическое освоение использования хука useContext для передачи данных между компонентами.",
+    "Закрепление понимания альтернативного подхода к prop drilling."
+  ],
+  "training_topic": "Передача данных между компонентами с использованием контекста в React.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться использовать хук useContext в React для передачи данных между компонентами, что является альтернативой prop drilling.",
+    "",
+    "Шаг 1. Подготовьте рабочую среду:",
+    "- Откройте редактор кода и создайте или откройте существующую папку с React-проектом.",
+    "",
+    "Шаг 2. Создание контекста NameContext.js:",
+    "- Создайте файл `NameContext.js` и поместите в него следующий код для создания контекста:",
+    {
+      "type": "code",
+      "title": "Создание контекста NameContext.js",
+      "code": "import React from 'react'; export const NameContext = React.createContext();"
+    },
+    "",
+    "Шаг 3. Создание корневого компонента App.js с использованием провайдера контекста:",
+    "- Создайте файл `App.js` и поместите в него следующий код компонента, используя провайдер контекста:",
+    {
+      "type": "code",
+      "title": "Компонент App.js",
+      "code": "import React from 'react'; import { NameContext } from './NameContext'; import ChildrenFirstLevel from './ChildrenFirstLevel'; const App = () => { const name = 'Семён Семёнович Горбунков'; return ( <NameContext.Provider value={name}> <div> <h1>Корневой компонент</h1> <ChildrenFirstLevel /> </div> </NameContext.Provider> ); }; export default App;"
+    },
+    "",
+    "Шаг 4. Создание промежуточного компонента ChildrenFirstLevel.js:",
+    "- Создайте файл `ChildrenFirstLevel.js` и поместите в него следующий код компонента, который не использует контекст напрямую:",
+    {
+      "type": "code",
+      "title": "Компонент ChildrenFirstLevel.js",
+      "code": "import React from 'react'; import ChildrenSecondLevel from './ChildrenSecondLevel'; const ChildrenFirstLevel = () => { return ( <div> <h2>Дочерний компонент первого уровня</h2> <ChildrenSecondLevel /> </div> ); }; export default ChildrenFirstLevel;"
+    },
+    "",
+    "Шаг 5. Создание конечного компонента ChildrenSecondLevel.js с использованием хука useContext:",
+    "- Создайте файл `ChildrenSecondLevel.js` и поместите в него следующий код компонента, который использует хук useContext для доступа к данным контекста:",
+    {
+      "type": "code",
+      "title": "Компонент ChildrenSecondLevel.js",
+      "code": "import React, { useContext } from 'react'; import { NameContext } from './NameContext'; const ChildrenSecondLevel = () => { const name = useContext(NameContext); return ( <div> <h3>Дочерний компонент второго уровня</h3> <p>Имя: {name}</p> </div> ); }; export default ChildrenSecondLevel;"
+    },
+    "",
+    "Шаг 6. Запуск и просмотр результата:",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и убедитесь, что проп `name` успешно передан через контекст и отображается в компоненте `ChildrenSecondLevel`.",
+    "",
+    "Вопросы для размышления:",
+    {
+      "type": "enumeration",
+      "title": "Плюсы и минусы использования контекста",
+      "items": [
+        "Какие преимущества имеет использование контекста по сравнению с prop drilling?",
+        "Какие недостатки имеет использование контекста?",
+        "В каких случаях использование контекста оправдано?",
+        "Какие альтернативы использованию контекста существуют в React?"
+      ]
+    },
+    "",
+    "Заключение:",
+    "- Вы освоили использование хука useContext в React для передачи данных между компонентами, что является альтернативой prop drilling."
+  ],
+  "reflection_questions": [
+    "Как использование контекста влияет на структуру и читаемость кода?",
+    "Какие проблемы могут возникнуть при использовании контекста в больших приложениях?",
+    "Какие инструменты или подходы могут помочь избежать проблем, связанных с использованием контекста?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "2",
+    "chapter": "5.11"
+    },
+    "Документация React: https://react.dev/reference/react/useContext"
+  ],
+  "final_conclusion": [
+    "Вы освоили использование хука useContext в React, изучили его плюсы и минусы, а также рассмотрели альтернативные подходы для передачи данных между компонентами."
+  ]
+}

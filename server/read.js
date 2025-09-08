@@ -1,6 +1,39 @@
 const fs = require('fs');
 const path = require('path');
 
+const sortFolders = (folders) => {
+    const orderedFolders = {};
+    const returnResult = [];
+
+    folders.forEach(folder => {
+        const name = folder.name;
+        const [leadNumber] = name.split('.');
+        
+        if (leadNumber in orderedFolders) {
+            orderedFolders[leadNumber].push(folder);
+        } else {
+            orderedFolders[leadNumber] = [folder];
+        }
+    });
+
+    for (const folders of Object.values(orderedFolders)) {
+        folders.sort((a, b) => {
+            if (Number(a.name.split('.')[1]) < Number(b.name.split('.')[1])) {
+                return -1;
+            } 
+            if (Number(a.name.split('.')[1]) > Number(b.name.split('.')[1])) {
+                return 1;
+            }
+
+            return 0;
+        }).forEach(folder => {
+            returnResult.push(folder);
+        });
+    }
+
+    return returnResult;
+};
+
 function readJsonFiles(targetDirName) {
 
     const targetDirPath = path.resolve(process.cwd(), targetDirName);
@@ -30,7 +63,7 @@ function readJsonFiles(targetDirName) {
             }
         }
 
-        return resultArray;
+        return sortFolders(resultArray);
     } catch (err) {
         console.error(`Ошибка при чтении папки "${targetDirName}":`, err.message);
         throw new Error(err.message);

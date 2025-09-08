@@ -2,6 +2,7 @@ import { Code } from "./Code";
 import { Download } from "./Download";
 import { Image } from "./Image";
 import { Json } from "./Json";
+import { Enumeration } from "./Enumeration";
 
 export const AdvancedItem = (item) => {
 
@@ -40,6 +41,11 @@ export const AdvancedItem = (item) => {
         case "link": {
 
             return <Download {...rest} />;
+        }
+
+        case "enumeration": {
+
+            return <Enumeration {...rest} />;
         }
     }
 };

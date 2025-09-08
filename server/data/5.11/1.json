@@ -1,0 +1,80 @@
+{
+  "title": "Prop Drilling в React",
+  "goals": [
+    "Практическое освоение передачи пропов через несколько уровней компонентов (prop drilling).",
+    "Закрепление понимания плюсов и минусов подхода prop drilling."
+  ],
+  "training_topic": "Передача пропов через несколько уровней компонентов в React.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться передавать пропы через несколько уровней компонентов в React, что называется prop drilling, и изучить его плюсы и минусы.",
+    "",
+    "Шаг 1. Подготовьте рабочую среду:",
+    "- Откройте редактор кода и создайте или откройте существующую папку с React-проектом.",
+    "",
+    "Шаг 2. Создание корневого компонента App.js:",
+    "- Создайте файл `App.js` и поместите в него следующий код компонента:",
+    {
+      "type": "code",
+      "title": "Компонент App.js",
+      "code": "import React from 'react'; import ChildrenFirstLevel from './ChildrenFirstLevel'; const App = () => { const name = 'Иван Иванович Иванов'; return ( <div> <h1>Корневой компонент</h1> <ChildrenFirstLevel name={name} /> </div> ); }; export default App;"
+    },
+    "",
+    "Шаг 3. Создание промежуточного компонента ChildrenFirstLevel.js:",
+    "- Создайте файл `ChildrenFirstLevel.js` и поместите в него следующий код компонента:",
+    {
+      "type": "code",
+      "title": "Компонент ChildrenFirstLevel.js",
+      "code": "import React from 'react'; import ChildrenSecondLevel from './ChildrenSecondLevel'; const ChildrenFirstLevel = ({ name }) => { return ( <div> <h2>Дочерний компонент первого уровня</h2> <ChildrenSecondLevel name={name} /> </div> ); }; export default ChildrenFirstLevel;"
+    },
+    "",
+    "Шаг 4. Создание конечного компонента ChildrenSecondLevel.js:",
+    "- Создайте файл `ChildrenSecondLevel.js` и поместите в него следующий код компонента:",
+    {
+      "type": "code",
+      "title": "Компонент ChildrenSecondLevel.js",
+      "code": "import React from 'react'; const ChildrenSecondLevel = ({ name }) => { return ( <div> <h3>Дочерний компонент второго уровня</h3> <p>Имя: {name}</p> </div> ); }; export default ChildrenSecondLevel;"
+    },
+    "",
+    "Шаг 5. Запуск и просмотр результата:",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и убедитесь, что проп `name` успешно передан через несколько уровней компонентов и отображается в компоненте `ChildrenSecondLevel`.",
+    "",
+    "Вопросы для размышления:",
+    {
+      "type": "enumeration",
+      "title": "Плюсы и минусы prop drilling",
+      "items": [
+        "Какие преимущества имеет подход prop drilling?",
+        "Какие недостатки имеет подход prop drilling?",
+        "В каких случаях использование prop drilling оправдано?",
+        "Какие альтернативы prop drilling существуют в React?"
+      ]
+    },
+    "",
+    "Заключение:",
+    "- Вы освоили передачу пропов через несколько уровней компонентов в React (prop drilling) и изучили его плюсы и минусы."
+  ],
+  "reflection_questions": [
+    "Как prop drilling влияет на структуру и читаемость кода?",
+    "Какие проблемы могут возникнуть при использовании prop drilling в больших приложениях?",
+    "Какие инструменты или подходы могут помочь избежать проблем, связанных с prop drilling?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "1",
+    "chapter": "5.11"
+    },    
+    "Документация React: https://react.dev/learn/passing-data-deeply-with-context"
+  ],
+  "final_conclusion": [
+    "Вы освоили подход prop drilling в React, изучили его плюсы и минусы, а также рассмотрели альтернативные подходы для передачи данных между компонентами."
+  ]
+}
