@@ -1,0 +1,99 @@
+{
+  "title": "Создание лэйаута с использованием react-router-dom",
+  "goals": [
+    "Практическое освоение создания лэйаута в React с использованием react-router-dom.",
+    "Закрепление понимания структуры и логики лэйаута в React-приложениях."
+  ],
+  "training_topic": "Создание лэйаута с использованием react-router-dom.",
+  "required_resources": [
+    "Редактор кода (VS Code, Sublime Text и т.д.).",
+    "React-проект (готовое приложение или созданный вручную)."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать лэйаут в React с использованием react-router-dom, чтобы управлять отображением общих частей интерфейса для нескольких страниц приложения.",
+    "",
+    "Шаг 1. Подготовьте рабочую среду:",
+    "- Откройте редактор кода и создайте или откройте существующую папку с React-проектом.",
+    "",
+    "Шаг 2. Создание компонента Layout:",
+    "- Создайте файл `Layout.js` в папке `src/layout` и импортируйте компонент `Outlet` из `react-router-dom`. Реализуйте компонент `Layout`, который будет содержать общие части интерфейса, такие как `header`, `footer` и `menu`, а также компонент `Outlet` для отображения дочерних компонентов.",
+    {
+      "type": "code",
+      "title": "Компонент Layout.js",
+      "code": "import React from 'react'; import { Outlet } from 'react-router-dom'; export const Layout = () => { return ( <div> <header>Header</header> <nav>Menu</nav> <Outlet /> <footer>Footer</footer> </div> ); };"
+    },
+    "",
+    "Шаг 3. Создание компонентов FirstPage и SecondPage:",
+    "- Создайте файлы `FirstPage.js` и `SecondPage.js` в папке `src/pages` и реализуйте компоненты `FirstPage` и `SecondPage`, которые будут отображаться на соответствующих страницах.",
+    {
+      "type": "code",
+      "title": "Компонент FirstPage.js",
+      "code": "import React from 'react'; export const FirstPage = () => { return ( <div> <h1>First Page</h1> </div> ); };"
+    },
+    {
+      "type": "code",
+      "title": "Компонент SecondPage.js",
+      "code": "import React from 'react'; export const SecondPage = () => { return ( <div> <h1>Second Page</h1> </div> ); };"
+    },
+    "",
+    "Шаг 4. Создание конфигурации маршрутизатора:",
+    "- Создайте файл `router.js` и импортируйте функцию `createBrowserRouter` из `react-router-dom`, а также компоненты `Layout`, `FirstPage` и `SecondPage`. Реализуйте конфигурацию маршрутизатора, используя компонент `Layout` как родительский для всех маршрутов.",
+    {
+      "type": "code",
+      "title": "Создание конфигурации маршрутизатора в router.js",
+      "code": "import { createBrowserRouter } from 'react-router-dom'; import { Layout } from './layout/Layout'; import { FirstPage, SecondPage } from './pages'; export const routes = createBrowserRouter([ { path: '/', element: <Layout />, children: [ { index: true, element: <FirstPage />, }, { path: 'second', element: <SecondPage />, }, ], }, ]);"
+    },
+    "",
+    "Шаг 5. Использование конфигурации маршрутизатора в приложении:",
+    "- Обновите файл `index.js`, чтобы использовать созданную конфигурацию маршрутизатора с компонентом `RouterProvider`.",
+    {
+      "type": "code",
+      "title": "Использование конфигурации маршрутизатора в index.js",
+      "code": "import React from 'react'; import ReactDOM from 'react-dom/client'; import { RouterProvider } from 'react-router-dom'; import { routes } from './router'; const root = ReactDOM.createRoot(document.getElementById('root')); root.render( <React.StrictMode> <RouterProvider router={routes} /> </React.StrictMode> );"
+    },
+    "",
+    "Шаг 6. Запуск и тестирование приложения (без навигации):",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и протестируйте отображение страницы приложения. Обратите внимание, что навигация между страницами пока не работает, и вы можете перейти на разные страницы только вручную изменяя адрес в браузере.",
+    "",
+    "Шаг 7. Добавление навигационного меню в лэйаут:",
+    "- Так как со страницы никуда не перейти, а только руками можно внести изменения в адресной строке, добавьте код меню навигации в лэйаут. Замените `<nav>Menu</nav>` на следующий код, чтобы добавить ссылки на страницы:",
+    {
+      "type": "code",
+      "title": "Добавление навигационного меню в Layout.js",
+      "code": "<nav> <Link to=\"/\">Главная</Link> <Link to=\"/second\">Вторая</Link> </nav>"
+    },
+    "- Обратите внимание, что в данном случае используется компонент `Link` из `react-router-dom`, а не тег `<a>`. Это позволяет использовать навигацию без перезагрузки страницы. Импортируйте его в файл `Layout.js`:",
+    {
+      "type": "code",
+      "title": "Добавление импорта в Layout.js",
+      "code": "import { Outlet, Link } from 'react-router-dom';"
+    },    
+    "",
+    "Шаг 8. Запуск и тестирование приложения (с навигацией):",
+    "- Запустите проект с помощью команды `npm start` или аналогичной.",
+    "- Откройте браузер и протестируйте навигацию между страницами приложения, используя добавленное меню.",
+    "",
+    "Заключение:",
+    "- Вы освоили создание лэйаута в React с использованием react-router-dom, что позволит вам эффективно управлять отображением общих частей интерфейса для нескольких страниц приложения."
+  ],
+  "reflection_questions": [
+    "Какие преимущества использования лэйаута в React-приложениях?",
+    "Как структура лэйаута влияет на организацию и читаемость кода?",
+    "Какие альтернативные способы создания лэйаута существуют в React?"
+  ],
+  "additional_materials": [
+    {
+    "type": "link",
+    "title": "Файлы для выполнения упражнения",
+    "name": "1",
+    "folder": "1",
+    "chapter": "6.7"
+    },    
+    "Документация React-Router-Dom: https://reactrouter.com/home"
+  ],
+  "final_conclusion": [
+    "Вы освоили создание лэйаута в React с использованием react-router-dom, что позволит вам эффективно управлять отображением общих частей интерфейса для нескольких страниц приложения."
+  ]
+}
