@@ -1,0 +1,55 @@
+{
+  "title": "Создание промптов для GigaChat с кодом React-компонента и асинхронным кодом",
+  "goals": [
+    "Практическое освоение создания промптов для GigaChat."
+  ],
+  "training_topic": "Создание промптов для GigaChat с кодом React-компонента и асинхронным кодом.",
+  "required_resources": [
+    "Код React-компонента и асинхронный код."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать промпты для GigaChat, включающие код React-компонента и асинхронный код, чтобы проверить его аналитические и логические способности.",
+    "",
+    "Шаг 1. Получение кода React-компонента и асинхронного кода:",
+    "- Получите код React-компонента и асинхронный код, который будет использоваться для тренировки создания промптов. Например, вот такой компонент с использованием хука useEffect и асинхронный код:",
+    {
+      "type": "code",
+      "title": "Компонент с использованием хука useEffect",
+      "code": "import React, { useState, useEffect } from 'react'; const FetchData = () => { const [data, setData] = useState(null); useEffect(() => { fetch('/api/data') .then(response => response.json()) .then(data => setData(data)) .catch(error => console.error('Error:', error)); }, []); return ( <div> {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : 'Загрузка...'} </div> ); }; export default FetchData;"
+    },
+    {
+      "type": "code",
+      "title": "Асинхронный код",
+      "code": "async function fetchData() { try { const response = await fetch('/api/data'); const result = await response.json(); return result; } catch (error) { console.error('Error:', error); } }"
+    },
+    "",
+    "Шаг 2. Создание промптов с кодом компонента и асинхронным кодом:",
+    "- Создайте несколько промптов, которые помогут вам проверить аналитические и логические способности GigaChat. Включите код компонента и асинхронный код в промпт. Например, такие промпты:",
+    {
+      "type": "enumeration",
+      "items": [
+        "Как работает хук useEffect в следующем компоненте и как он влияет на производительность?\n```\nimport React, { useState, useEffect } from 'react';\nconst FetchData = () => {\n  const [data, setData] = useState(null);\n  useEffect(() => {\n    fetch('/api/data')\n      .then(response => response.json())\n      .then(data => setData(data))\n      .catch(error => console.error('Error:', error));\n  }, []);\n  return (\n    <div>\n      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : 'Загрузка...'}\n    </div>\n  );\n};\nexport default FetchData;\n```",
+        "Какие преимущества и недостатки использования асинхронного кода в следующем примере?\n```\nasync function fetchData() {\n  try {\n    const response = await fetch('/api/data');\n    const result = await response.json();\n    return result;\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n```",
+        "Как можно улучшить следующий компонент для повышения его производительности и обработки ошибок?\n```\nimport React, { useState, useEffect } from 'react';\nconst FetchData = () => {\n  const [data, setData] = useState(null);\n  useEffect(() => {\n    fetch('/api/data')\n      .then(response => response.json())\n      .then(data => setData(data))\n      .catch(error => console.error('Error:', error));\n  }, []);\n  return (\n    <div>\n      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : 'Загрузка...'}\n    </div>\n  );\n};\nexport default FetchData;\n```"
+      ]
+    },
+    "",
+    "Шаг 3. Отправка промптов в GigaChat и анализ ответов:",
+    "- Отправьте созданные промпты в GigaChat и изучите ответы. Проверьте, насколько точно GigaChat ответил на ваши вопросы и помог вам лучше понять код компонента и асинхронный код.",
+    "",
+    "Заключение:",
+    "- Вы освоили навыки создания промптов для GigaChat с кодом React-компонента и асинхронным кодом и научились использовать их для анализа и понимания кода."
+  ],
+  "reflection_questions": [
+    "Какие преимущества использования промптов с кодом для анализа React-компонентов и асинхронного кода?",
+    "Как GigaChat может помочь в анализе и понимании структуры React-компонентов и асинхронного кода?",
+    "Какие другие задачи можно решать с помощью промптов к GigaChat?"
+  ],
+  "additional_materials": [
+    "Код React-компонента и асинхронный код."
+  ],
+  "final_conclusion": [
+    "Вы освоили навыки создания промптов для GigaChat с кодом React-компонента и асинхронным кодом и научились использовать их для анализа кода, что позволит вам эффективно работать с React-приложениями и улучшать их структуру и производительность."
+  ]
+}

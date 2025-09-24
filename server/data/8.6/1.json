@@ -1,0 +1,51 @@
+{
+  "title": "Промптинг к GigaChat: Проверка наличия кастомного хука в React-компоненте",
+  "goals": [
+    "Практическое освоение создания промптов для GigaChat.",
+    "Создание промпта содержащего закрытый вопрос и использование его для анализа кода React-компонентов."
+  ],
+  "training_topic": "Промптинг к GigaChat.",
+  "required_resources": [
+    "Код React-компонента с кастомным хуком."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать промпты для GigaChat, чтобы анализировать код в React-компоненте.",
+    "",
+    "Шаг 1. Получение кода React-компонента:",
+    "- Получите код React-компонента, который содержит кастомный хук. Например, вот такой компонент:",
+    {
+      "type": "code",
+      "title": "Компонент с кастомным хуком",
+      "code": "import React, { useState } from 'react'; import useCounter from './useCounter'; const Counter = () => { const [count, increment] = useCounter(0); return ( <div> <h1>Counter: {count}</h1> <button onClick={increment}>Increment</button> </div> ); }; export default Counter;"
+    },
+    "",
+    "Шаг 2. Создание промпта для GigaChat:",
+    "- Создайте промпт, который позволит вам задать вопрос GigaChat о наличии кастомного хука в компоненте. Например, такой промпт:",
+    {
+      "type": "code",
+      "title": "Промпт для GigaChat",
+      "code": "Содержит ли следующий React-компонент кастомный хук? Если да, то какой?\n```\nimport React, { useState } from 'react';\nimport useCounter from './useCounter';\nconst Counter = () => {\n  const [count, increment] = useCounter(0);\n  return (\n    <div>\n      <h1>Counter: {count}</h1>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\nexport default Counter;\n```"
+    },
+    "",
+    "Шаг 3. Отправка промпта в GigaChat:",
+    "- Скопируйте созданный промпт и отправьте его в GigaChat.",
+    "",
+    "Шаг 4. Анализ ответа GigaChat:",
+    "- Изучите ответ GigaChat и проверьте, правильно ли он определил наличие кастомного хука в компоненте.",
+    "",
+    "Заключение:",
+    "- Вы освоили навыки создания промптов для GigaChat и научились проверять наличие кастомного хука в React-компонентах."
+  ],
+  "reflection_questions": [
+    "Какие преимущества использования промптов для анализа кода?",
+    "Как GigaChat может помочь в анализе и понимании структуры React-компонентов?",
+    "Какие другие задачи можно решать с помощью аналогичных промптов к GigaChat?"
+  ],
+  "additional_materials": [
+    "Код React-компонента с кастомным хуком."
+  ],
+  "final_conclusion": [
+    "Вы освоили навыки создания промптов для GigaChat и научились использовать их для анализа кода React-компонентов, что позволит вам эффективно работать с React-приложениями и улучшать их структуру и производительность."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Создание промптов для GigaChat с кодом React-компонента",
+  "goals": [
+    "Практическое освоение создания промптов для GigaChat с кодом React-компонента."
+  ],
+  "training_topic": "Создание промптов для GigaChat с кодом React-компонента.",
+  "required_resources": [
+    "Код React-компонента."
+  ],
+  "instructions": [
+    "Введение в упражнение:",
+    "- Цель упражнения — научиться создавать промпты для GigaChat, включающие код React-компонента, чтобы лучше понимать его структуру и логику.",
+    "",
+    "Шаг 1. Получение кода React-компонента:",
+    "- Получите код React-компонента, который будет использоваться для тренировки создания промптов. Например, вот такой компонент:",
+    {
+      "type": "code",
+      "title": "Компонент с кастомным хуком",
+      "code": "import React, { useState } from 'react'; import useCounter from './useCounter'; const Counter = () => { const [count, increment] = useCounter(0); return ( <div> <h1>Counter: {count}</h1> <button onClick={increment}>Increment</button> </div> ); }; export default Counter;"
+    },
+    "",
+    "Шаг 2. Анализ кода компонента:",
+    "- Изучите код компонента и определите его структуру, логику и взаимодействие с другими компонентами.",
+    "",
+    "Шаг 3. Создание промптов с кодом компонента:",
+    "- Создайте несколько промптов, которые помогут вам лучше понять код компонента. Включите код компонента в промпт. Например, такие промпты:",
+    {
+      "type": "enumeration",
+      "items": [
+        "Как работает кастомный хук useCounter в следующем компоненте?\n```\nimport React, { useState } from 'react';\nimport useCounter from './useCounter';\nconst Counter = () => {\n  const [count, increment] = useCounter(0);\n  return (\n    <div>\n      <h1>Counter: {count}</h1>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\nexport default Counter;\n```",
+        "Какие данные хранятся в состоянии count и как они изменяются в следующем компоненте?\n```\nimport React, { useState } from 'react';\nimport useCounter from './useCounter';\nconst Counter = () => {\n  const [count, increment] = useCounter(0);\n  return (\n    <div>\n      <h1>Counter: {count}</h1>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\nexport default Counter;\n```",
+        "Как компонент Counter взаимодействует с другими компонентами в следующем коде?\n```\nimport React, { useState } from 'react';\nimport useCounter from './useCounter';\nconst Counter = () => {\n  const [count, increment] = useCounter(0);\n  return (\n    <div>\n      <h1>Counter: {count}</h1>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\nexport default Counter;\n```",
+        "Какие преимущества использования кастомного хука в следующем компоненте?\n```\nimport React, { useState } from 'react';\nimport useCounter from './useCounter';\nconst Counter = () => {\n  const [count, increment] = useCounter(0);\n  return (\n    <div>\n      <h1>Counter: {count}</h1>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\nexport default Counter;\n```",
+        "Как можно улучшить следующий компонент для повышения его производительности?\n```\nimport React, { useState } from 'react';\nimport useCounter from './useCounter';\nconst Counter = () => {\n  const [count, increment] = useCounter(0);\n  return (\n    <div>\n      <h1>Counter: {count}</h1>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n};\nexport default Counter;\n```"
+      ]
+    },
+    "",
+    "Шаг 4. Отправка промптов в GigaChat и анализ ответов:",
+    "- Отправьте созданные промпты в GigaChat и изучите ответы. Проверьте, насколько точно GigaChat ответил на ваши вопросы и помог вам лучше понять код компонента.",
+    "",
+    "Заключение:",
+    "- Вы освоили навыки создания промптов для GigaChat с кодом React-компонента и научились использовать их для анализа и понимания кода."
+  ],
+  "reflection_questions": [
+    "Какие преимущества использования промптов с кодом для анализа React-компонентов?",
+    "Как GigaChat может помочь в анализе и понимании структуры React-компонентов?",
+    "Какие другие задачи можно решать с помощью промптов к GigaChat?"
+  ],
+  "additional_materials": [
+    "Код React-компонента."
+  ],
+  "final_conclusion": [
+    "Вы освоили навыки создания промптов для GigaChat с кодом React-компонента и научились использовать их для анализа кода, что позволит вам эффективно работать с React-приложениями и улучшать их структуру и производительность."
+  ]
+}
