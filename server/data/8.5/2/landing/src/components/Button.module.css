@@ -1,0 +1,17 @@
+.sm {
+    box-sizing: border-box;
+    font-size: 12px;
+    padding: 8px;
+}
+
+.lg {
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.md {
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 10px;
+}

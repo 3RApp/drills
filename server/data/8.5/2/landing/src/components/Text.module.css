@@ -1,0 +1,35 @@
+.bodyS {
+    font-weight: 100;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.bodyM {
+    font-weight: 100;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.bodyL {
+    font-weight: 100;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.headS {
+    font-weight: 500;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.headM {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.headL {
+    font-weight: 500;
+    font-size: 18px;
+    font-family: sans-serif;
+}

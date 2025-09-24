@@ -1,0 +1,14 @@
+.aboutcompany, .businessevent, .calltoaction, .confirmation, .feedback, .registration, .service {
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.certificate div {
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
