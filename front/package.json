@@ -2,7 +2,6 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3037",
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -10,7 +9,7 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "node ./src/utils.js && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -32,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^3.0.5"
   }
 }
