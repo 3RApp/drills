@@ -21,3 +21,30 @@ ISBN: 978-5-4461-4272-9
 Нужно запустить приложение. Упражнения собраны в виде приложения. 
 1. ```cd server``` ```node index```
 2. ```cd ..``` ```cd front``` ```npm start```
+
+## Если возникла ошибка при установке
+webpack-dev-server иногда, но не у всех, вызывает ошибку и в консоли будет сообщение: 
+```
+Invalid options object. Dev server has been initialized using an options object taht does not match the API schema. - options.allowedHosts[0] should be a non-empty string
+```
+Если эта ошибка у вас возникла, переключитесь на другую ветку: 
+```
+git switch http-proxy-middleware
+```
+Так как вы столкнулись с ошибкой, то вы уже установили зависимости для front и server. Вам понадобится сделать установку дополнительного npm-пакета мидлвары прокси-сервера: 
+```
+cd server
+npm i
+```
+Затем вам нужно запустить сервер (находясь в папке server): 
+```
+node index
+```
+А следом, если фронт часть ещё не запущена, ещё и её: 
+```
+cd ..
+cd front
+npm start
+```
+## Если у вас есть любые другие вопросы
+Пишите antofer@mail.ru
